@@ -1,13 +1,9 @@
 n = int(input())
-l = sorted([int(input()) for _ in range(n)])
-ll = l.copy()
-s = []
-while not s or (l and l[-1]*(len(s)+1) > min(s)*len(s)):
-    s.append(l.pop())
-while len(ll) > 1 and (len(ll)-1)*ll[1] >len(ll)*ll[0]:
-    ll.pop(0)
-print(max(len(s)*s[-1],len(ll)*ll[0]))
-
+l = sorted([int(input()) for _ in range(n)], reverse=True)
+re = 0
+for index,i in enumerate(l):
+    re = max(re,i * (index+1))
+print(re)
 
 """
 3
